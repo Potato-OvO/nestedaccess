@@ -1,1 +1,1 @@
-from .nestedaccess import nestedaccess
+from nestedaccess.nestedaccess import nestedaccess
