@@ -20,19 +20,20 @@ def nestedaccess(data, keys, default=None):
             if isinstance(data, dict):
                 data = data.get(key, default)
                 if data is default:
-                    raise KeyError(f"字段 '{key}' 不存在")
+                    raise KeyError(f"field '{key}' does not exist")
             elif isinstance(data, list):
                 if isinstance(key, int):
                     if -len(data) <= key < len(data):
                         data = data[key]
                     else:
-                        raise IndexError(f"列表索引 '{key}' 超出范围")
+                        raise IndexError(f"list index '{key}' out of range")
                 else:
-                    raise TypeError("列表索引必须为整数")
+                    raise TypeError("list indices must be integers")
             else:
-                raise TypeError(f"无法获取嵌套数据，因为类型为 {type(data).__name__} 的对象没有键或索引")
+                raise TypeError(
+                    f"cannot fetch nested data because object of type {type(data).__name__} has no key or index"
+                )
     except (KeyError, IndexError, TypeError) as e:
-        print(f"发生错误: {str(e)}")
+        print(f"an error occurred: {str(e)}")
         return default
-
     return data
