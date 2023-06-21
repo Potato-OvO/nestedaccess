@@ -1,4 +1,4 @@
-def get(data, keys, default=None):
+def get(data, keys, error_info=False, default=None):
     """
     get nested data
 
@@ -34,6 +34,9 @@ def get(data, keys, default=None):
                     f"cannot fetch nested data because object of type {type(data).__name__} has no key or index"
                 )
     except (KeyError, IndexError, TypeError) as e:
-        print(f"an error occurred: {str(e)}")
+        if error_info:
+            print(f"an error occurred: {str(e)}")
+        else:
+            pass
         return default
     return data
