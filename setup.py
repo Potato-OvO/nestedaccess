@@ -17,7 +17,7 @@ URL = "https://github.com/Potato-OvO/nestedaccess"
 EMAIL = "wkl1224141267@gmail.com"
 AUTHOR = "Potato-OvO"
 REQUIRES_PYTHON = ">=3.7.0"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 LICENSE = "MIT"
 
 # What packages are required for this module to be executed?
