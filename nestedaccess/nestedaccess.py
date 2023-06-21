@@ -1,4 +1,4 @@
-def nestedaccess(data, keys, default=None):
+def get(data, keys, default=None):
     """
     get nested data
 
@@ -12,7 +12,7 @@ def nestedaccess(data, keys, default=None):
 
     Example:
         data = {'foo': {'bar': [1, 2, 3]}}
-        value = get_nested_data(data, ['foo', 'bar', 1])
+        value = get(data, ['foo', 'bar', 1])
         print(value)  # Output: 2
     """
     try:

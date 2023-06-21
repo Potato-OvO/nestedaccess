@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Note: To use the 'upload' functionality of this file, you must:
-#   $ pipenv install twine --dev
-
 import io
 import os
 import sys
@@ -20,7 +17,7 @@ URL = "https://github.com/Potato-OvO/nestedaccess"
 EMAIL = "wkl1224141267@gmail.com"
 AUTHOR = "Potato-OvO"
 REQUIRES_PYTHON = ">=3.7.0"
-VERSION = "0.1.3"
+VERSION = "0.2.8"
 LICENSE = "MIT"
 
 # What packages are required for this module to be executed?
@@ -99,19 +96,17 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    # packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    py_modules=["nestedaccess"],
     # If your package is a single module, use this instead of 'packages':
-    py_modules=[NAME],
+    # py_modules=[NAME],
     entry_points={
-        "console_scripts": ["mycli=mymodule:cli"],
+        "console_scripts": ["nestedaccess=nestedaccess.nestedaccess:get"],
     },
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
     license=LICENSE,
     classifiers=[
-        # Trove classifiers
-        # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
         f"License :: OSI Approved :: {LICENSE} License",
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",

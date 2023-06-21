@@ -22,13 +22,13 @@ data = {
 }
 
 # normal test
-print(nestedaccess(data, ['foo', 'baz', 'quux', 'grault', 1]))  # Output: 5
+print(nestedaccess.get(data, ['foo', 'baz', 'quux', 'grault', 1]))  # Output: 5
 
 # default test
-print(nestedaccess(data, ['nonexistent'], default='Not found'))  # Output: 'Not found'
+print(nestedaccess.get(data, ['nonexistent'], default='Not found'))  # Output: 'Not found'
 
 # error condition test
-print(nestedaccess(data, ['foo', 'baz', 'quux', 'corge', 'invalid']))  # Output: None (dictionary key does not exist)
+print(nestedaccess.get(data, ['foo', 'baz', 'quux', 'corge', 'invalid']))  # Output: None (dictionary key does not exist)
 ```
 
 # Installing Nestedaccess and Supported Versions
