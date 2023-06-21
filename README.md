@@ -1,5 +1,5 @@
 # README.md
-<a href="./README_zh-CN.md">English documentation for Nestedaccess</a>
+<a href="./README_zh-CN.md">中文文档</a>
 
 # Nestedaccess
 
@@ -27,7 +27,7 @@ data = {
 # normal data test.
 print(nestedaccess.get(data, ['foo', 'baz', 'quux', 'grault', 1]))  # Output: 5
 
-# return default data test.
+# Field does not exist, return default value data test.
 print(nestedaccess.get(data, ['nonexistent'], default='Not found'))  # Output: 'Not found'
 
 # The field does not exist, no error message data test is returned.

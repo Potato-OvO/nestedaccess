@@ -1,5 +1,5 @@
 # README.md
-<a href="./README.md">English document</a>
+<a href="./README.md">English documentation for Nestedaccess</a>
 
 # Nestedaccess
 
@@ -28,7 +28,7 @@ data = {
 # 正常数据测试
 print(nestedaccess.get(data, ['foo', 'baz', 'quux', 'grault', 1]))  # Output: 5
 
-# 返回默认值数据测试
+# 字段不存在，返回默认值数据测试
 print(nestedaccess.get(data, ['nonexistent'], default='Not found'))  # Output: 'Not found'
 
 # 字段不存在，不返回错误信息数据测试
