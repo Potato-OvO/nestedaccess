@@ -17,7 +17,7 @@ URL = "https://github.com/Potato-OvO/nestedaccess"
 EMAIL = "wkl1224141267@gmail.com"
 AUTHOR = "Potato-OvO"
 REQUIRES_PYTHON = ">=3.7.0"
-VERSION = "0.2.8"
+VERSION = "1.0.0"
 LICENSE = "MIT"
 
 # What packages are required for this module to be executed?
@@ -96,19 +96,19 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    py_modules=["nestedaccess"],
+    packages=find_packages(),
     # If your package is a single module, use this instead of 'packages':
     # py_modules=[NAME],
-    entry_points={
-        "console_scripts": ["nestedaccess=nestedaccess.nestedaccess:get"],
-    },
+    # entry_points={
+    #     "console_scripts": ["nestedaccess=nestedaccess.nestedaccess:nestedaccess"],
+    # },
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
     license=LICENSE,
     classifiers=[
         f"License :: OSI Approved :: {LICENSE} License",
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "Topic :: Utilities",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
