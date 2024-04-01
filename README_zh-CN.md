@@ -50,7 +50,7 @@ data = {
 print(nestedaccess.get(data, ["foo", "baz", "quux", "grault", 1]))  # Output: 5
 
 test_key = ("empty_list", 0, "baz", "qux")
-print(get(data, test_key))  # Output: hello
+print(nestedaccess.get(data, test_key))  # Output: hello
 
 # 字段不存在，返回默认值数据测试
 print(nestedaccess.get(data, ["nonexistent"], default="Not found"))  # Output: "Not found"

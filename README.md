@@ -49,7 +49,7 @@ data = {
 print(nestedaccess.get(data, ["foo", "baz", "quux", "grault", 1]))  # Output: 5
 
 test_key = ("empty_list", 0, "baz", "qux")
-print(get(data, test_key))  # Output: hello
+print(nestedaccess.get(data, test_key))  # Output: hello
 
 # Field does not exist, return default value data test.
 print(nestedaccess.get(data, ["nonexistent"], default="Not found"))  # Output: Not found
