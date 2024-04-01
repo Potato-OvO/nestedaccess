@@ -1,4 +1,18 @@
-def get(data, keys, error_info=False, default=None):
+from nestedaccess.lang import lang_messages
+
+
+def error_message(msg_key, lang="en", **kwargs):
+    if lang not in lang_messages:
+        raise ValueError("Unsupported language. Supported languages are 'en' and 'zh'.")
+
+    message = lang_messages[lang].get(msg_key)
+    if message is None:
+        raise ValueError(f"Message key '{msg_key}' not found for language '{lang}'.")
+
+    return message.format(**kwargs)
+
+
+def get(data, keys, default=None, lang="en"):
     """
     get nested data
 
@@ -18,25 +32,32 @@ def get(data, keys, error_info=False, default=None):
     try:
         for key in keys:
             if isinstance(data, dict):
-                data = data.get(key, default)
-                if data is default:
-                    raise KeyError(f"field '{key}' does not exist")
-            elif isinstance(data, list):
-                if isinstance(key, int):
-                    if -len(data) <= key < len(data):
-                        data = data[key]
-                    else:
-                        raise IndexError(f"list index '{key}' out of range")
+                if key in data:
+                    data = data[key]
                 else:
-                    raise TypeError("list indices must be integers")
+                    error_msg = error_message("KeyError", lang=lang, key=key)
+                    raise KeyError(error_msg)
+            elif isinstance(data, list):
+                try:
+                    index = int(key)
+                    if 0 <= index < len(data):
+                        data = data[index]
+                    else:
+                        error_msg = error_message("IndexError", lang=lang, key=key)
+                        raise IndexError(error_msg)
+                except TypeError:
+                    error_msg = error_message("TypeError", lang=lang)
+                    raise TypeError(error_msg)
             else:
-                raise TypeError(
-                    f"cannot fetch nested data because object of type {type(data).__name__} has no key or index"
+                error_msg = error_message(
+                    "GeneralError", lang=lang, data_type=type(data).__name__, key=key
                 )
-    except (KeyError, IndexError, TypeError) as e:
-        if error_info:
-            print(f"an error occurred: {str(e)}")
+                raise ValueError(error_msg)
+
+        # 如果循环完毕没有抛出异常，则返回数据
+        return data
+    except Exception as e:
+        if default is not None:
+            return default
         else:
-            pass
-        return default
-    return data
+            raise
