@@ -18,16 +18,12 @@ def get(data, keys, default=None, lang="en"):
 
     Args:
         data (dict or list): Nested data objects, which can be dictionaries or lists
-        keys (list): list of keys or indices to fetch nested data
+        keys (list, tuple): Key or index list, tuple for getting nested data
         default (any, optional): The default value, returned when the acquisition fails, the default is None
+        lang (str, optional): If an error occurs, the language of the error message is returned. Defaults to "en"
 
     Returns:
         any: Nested data value, if the acquisition fails, return the default value
-
-    Example:
-        data = {'foo': {'bar': [1, 2, 3]}}
-        value = get(data, ['foo', 'bar', 1])
-        print(value)  # Output: 2
     """
     try:
         for key in keys:
